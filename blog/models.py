@@ -19,11 +19,11 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
 
-class Comments(models.Model):
-    post = models.Foreign_Key(
+class Comment(models.Model):
+    post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments"
     )
-    author = models.Foreign_Key(
+    author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter"
     )
     comment = models.TextField()
